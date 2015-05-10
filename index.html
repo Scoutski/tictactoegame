@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-
   <title>Tic Tac Toe game!</title>
 </head>
+
 <body>
-  
-<table class="tg">
-  <tr>
-    <td class="boardSquare" id="topleft"></td>
-    <td class="boardSquare" id="topmid"></td>
-    <td class="boardSquare" id="topright"></td>
-  </tr>
-  <tr>
-    <td class="boardSquare" id="midleft"></td>
-    <td class="boardSquare" id="middle"></td>
-    <td class="boardSquare" id="midright"></td>
-  </tr>
-  <tr>
-    <td class="boardSquare" id="botleft"></td>
-    <td class="boardSquare" id="botmid"></td>
-    <td class="boardSquare" id="botright"></td>
-  </tr>
-</table>
+  <div id="container">
+    <h1>Tic Tac Toe!</h1>
+    <div id="status">
+      <p>Player 1 (the 0's), click on any square to begin!</p>
+    </div>
+    <table class="tg">
+      <tr>
+        <td class="boardSquare" id="topleft"></td>
+        <td class="boardSquare" id="topmid"></td>
+        <td class="boardSquare" id="topright"></td>
+      </tr>
+      <tr>
+        <td class="boardSquare" id="midleft"></td>
+        <td class="boardSquare" id="middle"></td>
+        <td class="boardSquare" id="midright"></td>
+      </tr>
+      <tr>
+        <td class="boardSquare" id="botleft"></td>
+        <td class="boardSquare" id="botmid"></td>
+        <td class="boardSquare" id="botright"></td>
+      </tr>
+    </table>
+    <p id="winCount">O wins: 0 - X wins: 0</p>
 
-<button id="restart">Restart Game</button>
-
+    <button id="restart">Restart Game</button>
+  </div>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
+
 </html>

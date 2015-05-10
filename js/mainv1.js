@@ -1,5 +1,32 @@
+// Project needs to accept user inputs and mark spaces on a webpage to play the tic tac toe game.
+// Project needs to determine when a win condition has been met and when no winning condition is left in the game so it can end
+// Project needs to be able to reset and clear all current moves
+// Nice feature to have would be able to undo last move.
+// Project will need functions for:
+// - Start Game
+// - Determining which players turn it is
+// - Processing Player Input
+// - Placing player specific markers on the board
+// - Checking the board state
+
+// Determining the winner is a giant pain in the ass. There are 8 different victory conditions (3 rows, 3 columns + 2 diagonals. Comparing the value of these squares is not a very good way to do it without making a huge mess of code)
+// I could try make a nested array 3x3 and do comparisons that way but that would still just be a massive block of if statements as far as I can tell, or it would be a bloated for loop, probably nested for loops
+// I could assign a value to each square for win conditions and check if variables meet each total.
+// Okay, magic square does not work because it's possible to make a solution with 4 different non-sequential values (01,11,12,22 = 15).
+
+
 var turnCheck = -1;
+// var oTotal = 0;
+// var xTotal = 0;
+// var boardPoints = [
+//   [8, 1, 6],
+//   [3, 5, 7],
+//   [4, 9, 2]
+// ];
+// Magic square doesn't work, had to google number combination for success
 var board = {};
+//Values will be assigned as required
+
 var currentPlayer = '';
 var turns = 0;
 var victor = '';
@@ -8,6 +35,19 @@ var score = {
   O: 0,
   X: 0
 }
+
+// var determineVictor = function() {
+//   This function is disgusting and I hate it. Unfortunately it causes an issue because it counts empty squares as wins.
+//   if ($('table th#topleft').text() === $('table th#topmid').text() && $('table th#topleft').text() === $('table th#topright').text()) {
+//     console.log('winner');
+//   } else if ($('table th#midleft').text() === $('table th#middle').text() && $('table th#midleft').text() === $('table th#midright').text()) {
+//     console.log('winner');
+//   } else if ($('table th#botleft').text() === $('table th#botmid').text() && $('table th#botright').text() === $('table th#botleft').text()) {
+//     console.log('winner');
+//   }
+// };
+
+// Abandoning this function and going to try use magic square method to find solution.
 
 var determinePlayerTurn = function() {
   turnCheck++
@@ -18,6 +58,7 @@ var determinePlayerTurn = function() {
     currentPlayer = 'X';
     return 'X';
   }
+  // This function basically just works out who's turn it is and marks the square with the corresponding character.
 };
 
 var addMark = function(position) {
@@ -103,9 +144,6 @@ var determineVictor = function() {
     } else {
       score.O++;
     }
-    var $O = score.O;
-    var $X = score.X;
-    $('#winCount').html('O wins: <strong>' + score.O + '</strong> - ' + 'X wins: <strong>' + score.X + '</strong>');
   }
 };
 
@@ -178,4 +216,13 @@ var restartGame = function() {
 }
 
 $('#restart').on('click', restartGame)
+  // One is a similar method to on but only allows the event to occur once.
+
 restartGame();
+
+// Test cases:
+// 8 win conditions for 0
+// 8 win conditions for X
+// no winner
+
+// Didn't work as there are ways to get to 15 with 4 numbers

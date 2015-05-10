@@ -1,3 +1,4 @@
+
 .tg {
   border-collapse: collapse;
   border-spacing: 0;
@@ -14,4 +15,25 @@
   width: 100px;
   height: 100px;
   text-align: center;
+}
+
+#container {
+  max-width: 960px;
+  min-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#status {
+  height: 40px;
+}
+
+#restart {
+  margin-top: 10px;
+  width: 120px;
+  height: 80px;
+}
+
+table {
+  margin: 0 auto;
 }
